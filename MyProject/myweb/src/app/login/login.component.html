@@ -1,0 +1,61 @@
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-2"
+            style="height:100vh;background-color: rgb(188, 217, 241);overflow-x: hidden;position: fixed;z-index: 1;">
+            <app-left-sidebar></app-left-sidebar>
+        </div>
+        <div class="col-2">
+
+        </div>
+        <div class="col-10">
+            <div style="padding-top: 25px;">
+                <app-header></app-header>
+            </div>
+            <hr>
+            <hr>
+            <div class="row">
+                <div class="col-12" style="text-align: center;font-size: medium;">
+                    <!-- <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a> -->
+                    <label class="alert alert-info alert-dismissible" *ngIf=" message!=''"> {{message }}</label>
+                </div>
+                <div class="col-6">
+                    <h4>Student Login</h4>
+                    {{statusError |json}}
+                    <form #userForm="ngForm" (ngSubmit)="signstud(userForm.value)">
+                        <div class="form-group">
+                            <label>Student Prn</label>
+                            <input type="number" name="studentPrn" ngModel class="form-control" id="email">
+                            <!-- <small class="text-danger" [class.d-none] ="email.valid || email.untouched">Email is required.</small> -->
+                        </div>
+                        <div class="form-group">
+                            <label>Password</label>
+                            <input type="password" name="password" ngModel class="form-control" id="pass">
+                            <!-- <small class="text-danger" [class.d-none] ="pass.valid || pass.untouched">Password is required.</small> -->
+                        </div>
+                        <button type="submit" [disabled]="userForm.form.invalid"
+                            class="btn btn-primary">Submit</button>&nbsp;&nbsp;
+                        <button routerLink="/forgotpwd" class="btn btn-secondary">Forgot Password</button>
+                    </form>
+                </div>
+                <div class="col-6">
+                    <h4>Course Co-ordinator Login</h4>
+                    <form #ccForm="ngForm" (ngSubmit)="authenicate(ccForm.value)">
+                        <div class="form-group">
+                            <label>Coordinator Id</label>
+                            <input type="number" name="courseId" ngModel class="form-control" id="cemail">
+                            <!-- <small class="text-danger" [class.d-none] ="cemail.valid || cemail.untouched">Email is required.</small> -->
+                        </div>
+                        <div class="form-group">
+                            <label>Password</label>
+                            <input type="password" name="coordinatorPassword" ngModel class="form-control" id="cpass">
+                            <!-- <small class="text-danger" [class.d-none] ="cpass.valid || cpass.untouched">Password is required.</small> -->
+                        </div>
+                        <button type="submit" [disabled]="ccForm.form.invalid"
+                            class="btn btn-primary">Submit</button>&nbsp;&nbsp;
+                        <button routerLink="/forgotpwd" class="btn btn-secondary">Forgot Password</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

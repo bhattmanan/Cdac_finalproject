@@ -1,0 +1,57 @@
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-2"
+            style="height:100vh;background-color: rgb(188, 217, 241);overflow-x: hidden;position: fixed;z-index: 1;">
+            <app-left-sidebar></app-left-sidebar>
+        </div>
+        <div class="col-2">
+
+        </div>
+        <div class="col-10">
+            <div style="padding-top: 25px;">
+                <app-header></app-header>
+            </div>
+            <hr>
+            <hr>
+            <div class="col-5">
+                <h4>Student Details</h4>
+                <table class="table table-hover">
+                    <!-- <thead class="thead-dark" (click)="getData()">
+                        <tr>
+                            <th style="width: 80vw;">Subject</th>
+                            <th style="width: 15vw;">Complaint Date</th>
+                            <th style="width: 5vw;"></th>
+                        </tr>
+                    </thead>
+                 -->
+                    <tbody>
+                        <tr>
+                            <td>Prn</td>
+                            <td>{{studentDetails.studentPrn}}</td>
+                        </tr>
+                        <tr>
+                            <td>Name</td>
+                            <td>{{studentDetails.studentName}}</td>
+                        </tr>
+                        <tr>
+                            <td>Email Id</td>
+                            <td>{{studentDetails.email}}</td>
+                        </tr>
+                        <tr>
+                            <td>Phone Number</td>
+                            <td>{{studentDetails.phoneNumber}}</td>
+                        </tr>
+                        <tr>
+                            <td>Date of Birth</td>
+                            <td>{{studentDetails.dateofbirth}}</td>
+                        </tr>
+                        <tr>
+                            <td>Status</td>
+                            <td style="color: blue;">{{studentDetails.studentStatus}}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>

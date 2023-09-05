@@ -1,0 +1,48 @@
+<input type="submit" (click)="createform()" class="btn btn-primary" value="Submit" />
+{{ AllStudentData| json}}{{uniquedata | json}}
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-2" style="height:100vh;background-color: rgb(188, 217, 241);">
+            <app-left-sidebar></app-left-sidebar>
+        </div>
+        <div class="col-10">
+            <div style="padding-top: 25px;">
+                <app-header></app-header>
+            </div>
+            <hr>
+            <hr>
+            <div>
+                <form [formGroup]="InternalResultsForm" (submit)="SaveData()">
+                    <b>Subject Name</b>&nbsp;
+                    <input type="text" formControlName="SubjectName" />
+                    <br><br>
+                    <table class="table table-hover">
+                        <thead class="thead-dark">
+                            <tr>
+                                <th>PRN</th>
+                                <th>LabInternal Marks</th>
+                                <th>LabExam Marks</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr formArrayName="StudentDetails"
+                                *ngFor="let cd of InternalResultsForm.controls.StudentDetails.controls ;let i=index;">
+                                <td formGroupName={{i}}>{{cd.get('studentPrn').value}}</td>
+                                <td formGroupName={{i}}><input type="text" formControlName="labInternal"
+                                        placeholder="" /></td>
+                                <td formGroupName={{i}}><input type="text" formControlName="labExam" placeholder="" />
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <input type="submit" class="btn btn-primary" value="Submit" />
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

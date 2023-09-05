@@ -1,0 +1,25 @@
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-2"
+            style="height:100vh;background-color: rgb(188, 217, 241);overflow-x: hidden;position: fixed;z-index: 1;">
+            <app-left-sidebar></app-left-sidebar>
+        </div>
+        <div class="col-2">
+
+        </div>
+        <div class="col-10">
+            <div style="padding-top: 25px;">
+                <app-header></app-header>
+            </div>
+            <hr>
+            <hr>
+            <div>
+                {{id}}
+            </div>
+            <button class="btn btn-primary" (click)="getdata()">click here</button>
+
+            {{studentStom | json}}
+
+        </div>
+    </div>
+</div>

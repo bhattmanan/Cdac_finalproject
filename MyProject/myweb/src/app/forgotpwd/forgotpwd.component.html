@@ -1,0 +1,50 @@
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-2"
+            style="height:100vh;background-color: rgb(188, 217, 241);overflow-x: hidden;position: fixed;z-index: 1;">
+            <app-left-sidebar></app-left-sidebar>
+        </div>
+        <div class="col-2">
+
+        </div>
+        <div class="col-10">
+            <div style="padding-top: 25px;">
+                <app-header></app-header>
+            </div>
+            <hr>
+            <hr>
+            <div class="row">
+                <div class="col-6">
+                    <h4>Forgot Password</h4>
+                    <form #forgotForm="ngForm" (ngSubmit)="foregetpasswordStud(forgotForm.value)">
+                        <div class="form-group">
+                            <label>Student Prn</label>
+                            <input type="number" required #studentPrn="ngModel"
+                                [class.is-invalid]="studentPrn.invalid && studentPrn.touched" name="studentPrn" ngModel
+                                class="form-control" id="email">
+                            <!-- <small class="text-danger" [class.d-none] ="email.valid || email.untouched">Email is required.</small> -->
+                        </div>
+
+                        <div class="form-group">
+                            <label>Email Address</label>
+                            <input type="email" required #email="ngModel"
+                                [class.is-invalid]="email.invalid && email.touched" name="email" class="form-control"
+                                id="email" ngModel>
+                            <!-- <small class="text-danger" [class.d-none] ="email.valid || email.untouched">Email is required.</small> -->
+                        </div>
+                        <div class="form-group">
+                            <label>Date Of Birth</label>
+                            <input type="date" required #dateofbirth="ngModel"
+                                [class.is-invalid]="dateofbirth.invalid && dateofbirth.touched" name="dateofbirth"
+                                class="form-control" id="dob" ngModel>
+                            <!-- <small class="text-danger" [class.d-none] ="dob.valid || dob.untouched">DOB is required.</small> -->
+                        </div>
+                        <button type="submit" [disabled]="forgotForm.form.invalid"
+                            class="btn btn-primary">Submit</button>&nbsp;&nbsp;
+                        <button routerLink="/login" class="btn btn-secondary">Cancel</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
